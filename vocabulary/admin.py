@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from vocabulary.models import Word
+from vocabulary.models import Word, UserWord
 
-# Register your models here.
 admin.site.register(Word)
+
+admin.site.register(UserWord)
