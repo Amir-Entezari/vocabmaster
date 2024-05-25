@@ -31,3 +31,9 @@ class UserWord(models.Model):
 
     def __str__(self):
         return f'{self.user.username} - {self.word.word}'
+
+
+class BlackToken(models.Model):
+    token = models.CharField(
+        verbose_name="Token to blacklist", max_length=60, null=False, blank=False
+    )
