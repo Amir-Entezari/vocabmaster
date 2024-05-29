@@ -29,7 +29,7 @@ class UserWordOutSchema(Schema):
     id: int
     word: str
     added_at: str
-    user_note: Optional[str] = Field(None)
+    user_note: str
 
 
 class LoginIn(ModelSchema):
