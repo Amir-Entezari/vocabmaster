@@ -10,10 +10,14 @@ class CustomUser(AbstractUser):
 
 
 class Word(models.Model):
-    word = models.CharField(max_length=255)
+    word = models.CharField(max_length=255, unique=True)
+    phonetic = models.CharField(max_length=255, blank=True, null=True)
+    audio_url = models.URLField(blank=True, null=True)
     meaning = models.TextField()
-    synonyms = models.ManyToManyField("self", blank=True)
     example_sentence = models.TextField(blank=True, null=True)
+    origin = models.TextField(blank=True, null=True)
+    part_of_speech = models.CharField(max_length=50, blank=True, null=True)
+    synonyms = models.ManyToManyField('self', blank=True)
     extra_info = models.TextField(blank=True, null=True)
 
     def __str__(self):
