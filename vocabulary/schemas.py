@@ -2,7 +2,6 @@ from pydantic import Field
 from ninja import ModelSchema, Schema
 from typing import Optional
 
-from vocabulary.models import CustomUser
 
 
 class WordInputSchema(Schema):
@@ -32,19 +31,3 @@ class UserWordOutSchema(Schema):
     user_note: str
 
 
-class LoginIn(ModelSchema):
-    class Config:
-        model = CustomUser
-        model_fields = ["username", "password"]
-
-
-class LogoutOut(ModelSchema):
-    class Config:
-        model = CustomUser
-        model_fields = ["username", "email", "first_name", "last_name"]
-
-
-class UserOut(ModelSchema):
-    class Config:
-        model = CustomUser
-        model_fields = ["username", "email", "first_name", "last_name"]
